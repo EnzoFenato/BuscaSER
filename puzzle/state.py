@@ -19,7 +19,7 @@ class State:
     def __init__(self, tiles: Tuple[int, ...], parent: Optional["State"] = None, action: Optional[str] = None, cost: int = 0):
         if len(tiles) != 9 or set(tiles) != set(range(9)):
             raise ValueError("Estado inválido: deve conter exatamente os valores 0-8.")
-        self.tiles = tiles
+        self.tiles = tuple(tiles)   # aceita lista ou tupla; tupla é imutável e hashable
         self.parent = parent
         self.action = action
         self.cost = cost
